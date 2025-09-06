@@ -1,5 +1,5 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "$schema": "http://www.diefapprik.de/r/registry.json",
   "name": "@fellasUI",
   "homepage": "https://diefapprik.de",
   "items": [
@@ -11,7 +11,32 @@
       "files": [
         {
           "path": "registry/@fellas/ui/button.tsx",
-          "type": "registry:component"
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/card.tsx"
         }
       ]
     },
@@ -24,9 +49,44 @@
       "files": [
         {
           "path": "registry/@fellas/block/hello-world/hello-world.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "components/fellasUI/block/hello-world/hello-world.tsx"
         }
       ]
+    },
+    {
+      "name": "content-grid-view",
+      "type": "registry:block",
+      "title": "ContentGridView",
+      "description": "A simple gridview demo",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "@fellasUI/content-grid"
+      ],
+      "files": [
+        {
+          "path": "registry/@fellas/block/content-grid-view/content-grid-view.tsx",
+          "type": "registry:block",
+          "target": "components/fellasUI/block/content-grid-view/content-grid-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "content-grid",
+      "type": "registry:component",
+      "title": "Content Grid",
+      "description": "A content grid component that supports both grid and list views.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/content-grid/content-grid.tsx",
+          "type": "registry:component",
+          "target": "components/fellasUI/content-grid/content-grid.tsx"
+        }
+      ],
+      "author": "codefellas <codefellasdd@gmail.com>"
     }
   ]
 }

@@ -11,7 +11,8 @@
     {
       "path": "registry/@fellas/block/hello-world/hello-world.tsx",
       "content": "export function HelloWorld() {\n  return <h1 className=\"text-2xl font-bold\">Hello World</h1>\n}\n",
-      "type": "registry:block"
+      "type": "registry:block",
+      "target": "components/fellasUI/block/hello-world/hello-world.tsx"
     }
   ]
 }

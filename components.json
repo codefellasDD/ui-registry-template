@@ -20,6 +20,6 @@
   },
   "iconLibrary": "lucide",
   "registries": {
-    "@fellasUI": "https://ui.shadcn.com/{name}/registry.json"
+    "@fellasUI": "http://www.diefapprik.de/{name}/registry.json"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-grid-view",
+  "type": "registry:block",
+  "title": "ContentGridView",
+  "description": "A simple gridview demo",
+  "registryDependencies": [
+    "badge",
+    "button",
+    "card",
+    "@fellasUI/content-grid"
+  ],
+  "files": [
+    {
+      "path": "registry/@fellas/block/content-grid-view/content-grid-view.tsx",
+      "content": "\"use client\";\n\nimport { Card, CardContent, CardHeader, CardTitle } from \"@/registry/@fellas/ui/card\";\nimport { Badge } from \"@/registry/@fellas/ui/badge\";\nimport { Button } from \"@/registry/@fellas/ui/button\";\nimport { Star, Eye, Download } from \"lucide-react\";\nimport { ContentGrid } from \"@/registry/@fellas/ui/content-grid/content-grid\";\n\nexport default function ContentGridView() {\n  const sampleItems = [\n    {\n      id: 1,\n      title: \"Dashboard Template\",\n      description:\n        \"A comprehensive dashboard template with charts and analytics.\",\n      category: \"Template\",\n      price: \"$49\",\n      rating: 4.9,\n      views: 1234,\n      downloads: 892,\n    },\n    {\n      id: 2,\n      title: \"UI Kit Pro\",\n      description: \"Complete UI kit with modern components and layouts.\",\n      category: \"UI Kit\",\n      price: \"$29\",\n      rating: 4.8,\n      views: 956,\n      downloads: 643,\n    },\n  ];\n\n  const renderCard = (item: any, viewMode: \"grid\" | \"list\") => {\n    const isListMode = viewMode === \"list\";\n\n    return (\n      <Card\n        key={item.id}\n        className={`hover:shadow-md transition-shadow ${\n          isListMode ? \"flex items-center gap-4\" : \"\"\n        }`}\n      >\n        <div className={`flex-1 ${isListMode ? \"mr-4\" : \"\"}`}>\n          <CardHeader className=\"pb-2\">\n            <div className=\"flex items-start justify-between\">\n              <div>\n                <CardTitle className=\"text-base\">{item.title}</CardTitle>\n                <Badge variant=\"outline\" className=\"mt-1 text-xs\">\n                  {item.category}\n                </Badge>\n              </div>\n              <div className=\"text-right\">\n                <div className=\"font-bold text-primary\">{item.price}</div>\n                <div className=\"flex items-center gap-1 text-sm text-muted-foreground\">\n                  <Star className=\"h-3 w-3 fill-yellow-400 text-yellow-400\" />\n                  {item.rating}\n                </div>\n              </div>\n            </div>\n          </CardHeader>\n          <CardContent className=\"pt-0\">\n            <p className=\"text-muted-foreground text-sm mb-3 line-clamp-2\">\n              {item.description}\n            </p>\n            <div className=\"flex items-center gap-4 text-sm text-muted-foreground mb-3\">\n              <div className=\"flex items-center gap-1\">\n                <Eye className=\"h-4 w-4\" />\n                {item.views.toLocaleString()}\n              </div>\n              <div className=\"flex items-center gap-1\">\n                <Download className=\"h-4 w-4\" />\n                {item.downloads.toLocaleString()}\n              </div>\n            </div>\n            <Button size=\"sm\" className=\"w-full\">\n              <Download className=\"h-4 w-4 mr-2\" />\n              Download\n            </Button>\n          </CardContent>\n        </div>\n      </Card>\n    );\n  };\n\n  return (\n    <ContentGrid\n      items={sampleItems}\n      renderCard={renderCard}\n      defaultViewMode=\"grid\"\n      gridColumns={2}\n      className=\"w-full\"\n    />\n  );\n\n}",
+      "type": "registry:block",
+      "target": "components/fellasUI/block/content-grid-view/content-grid-view.tsx"
+    }
+  ]
+}
