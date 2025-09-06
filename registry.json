@@ -11,7 +11,7 @@
       "files": [
         {
           "path": "registry/@fellas/ui/button.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
