@@ -48,3 +48,26 @@ export function formatDate(input: string | number): string {
     year: "numeric",
   });
 }
+
+export function formatGermanDateRange(from: string, to: string): string {
+  const fromDate = new Date(from);
+  const toDate = new Date(to);
+  
+  const formatTime = (date: Date) => 
+    date.toLocaleTimeString('de-DE', { 
+      hour: '2-digit', 
+      minute: '2-digit' 
+    });
+  
+  const formatDate = (date: Date) =>
+    date.toLocaleDateString('de-DE', {
+      day: '2-digit',
+      month: 'short'
+    });
+  
+  if (fromDate.toDateString() === toDate.toDateString()) {
+    return `${formatDate(fromDate)}, ${formatTime(fromDate)} - ${formatTime(toDate)}`;
+  }
+  
+  return `${formatDate(fromDate)} ${formatTime(fromDate)} - ${formatDate(toDate)} ${formatTime(toDate)}`;
+};
