@@ -4,6 +4,57 @@
   "homepage": "https://diefapprik.de",
   "items": [
     {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A simple switch component",
+      "dependencies": ["@radix-ui/react-switch"],
+      "registryDependencies": [
+        "@fellasUI/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A simple separator component",
+      "dependencies": ["@radix-ui/react-separator"],
+      "registryDependencies": [
+        "@fellasUI/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A simple label component",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": [
+        "@fellasUI/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/fellasUI/ui/label.tsx"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
@@ -192,6 +243,46 @@
       "author": "codefellas <codefellasdd@gmail.com>"
     },
     {
+      "name": "draggable-dashboard",
+      "type": "registry:component",
+      "title": "DraggableDashboard",
+      "description": "A draggable dashboard component.",
+      "registryDependencies": [
+        "@fellasUI/switch",
+        "@fellasUI/label",
+        "@fellasUI/separator",
+        "@fellasUI/utils"
+      ],
+      "dependencies": ["lucide-react", "@dnd-kit/core", "@dnd-kit/sortable", "@dnd-kit/utilities"],
+      "files": [
+        {
+          "path": "registry/@fellas/ui/draggable-dashboard/draggable-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/fellasUI/draggable-dashboard/draggable-dashboard.tsx"
+        }
+      ],
+      "author": "codefellas <codefellasdd@gmail.com>"
+    },
+    {
+      "name": "draggable-dashboard-view",
+      "type": "registry:component",
+      "title": "DraggableDashboard",
+      "description": "A draggable dashboard view component.",
+      "registryDependencies": [
+        "@fellasUI/card",
+        "@fellasUI/draggable-dashboard"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/@fellas/block/draggable-dashboard-view/draggable-dashboard-view.tsx",
+          "type": "registry:component",
+          "target": "components/fellasUI/block/draggable-dashboard-view/draggable-dashboard-view.tsx"
+        }
+      ],
+      "author": "codefellas <codefellasdd@gmail.com>"
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": ["clsx", "tailwind-merge"],
@@ -216,7 +307,8 @@
         "@fellasUI/utils",
         "badge",
         "card",
-        "@fellasUI/content-grid"
+        "@fellasUI/content-grid",
+        "@fellasUI/draggable-dashboard"
       ],
       "dependencies": ["lucide-react", "framer-motion"],
       "files": [
@@ -229,7 +321,13 @@
           "path": "registry/@fellas/block/content-grid-view/content-grid-view.tsx",
           "type": "registry:block",
           "target": "components/fellasUI/block/content-grid-view/content-grid-view.tsx"
+        },
+        {
+          "path": "registry/@fellas/block/draggable-dashboard-view/draggable-dashboard-view.tsx",
+          "type": "registry:block",
+          "target": "components/fellasUI/block/draggable-dashboard-view/draggable-dashboard-view.tsx"
         }
+
       ],
       "author": "codefellas <codefellasdd@gmail.com>"
     }
