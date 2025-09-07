@@ -78,8 +78,7 @@
       "cssVars": {
         "theme": {
           "animate-marquee": "marquee var(--duration) infinite linear",
-          "animate-marquee-vertical":
-            "marquee-vertical var(--duration) linear infinite"
+          "animate-marquee-vertical": "marquee-vertical var(--duration) linear infinite"
         }
       },
       "css": {
@@ -100,7 +99,6 @@
           }
         }
       }
-
     },
     {
       "name": "hello-world",
@@ -140,7 +138,7 @@
       "type": "registry:component",
       "title": "Content Grid",
       "description": "A content grid component that supports both grid and list views.",
-      "registryDependencies": ["button","@fellasUI/utils"],
+      "registryDependencies": ["button", "@fellasUI/utils"],
       "files": [
         {
           "path": "registry/@fellas/ui/content-grid/content-grid.tsx",
@@ -155,8 +153,12 @@
       "type": "registry:component",
       "title": "Bento Grid",
       "description": "A bento grid component.",
-      "registryDependencies": ["button","@fellasUI/blur-in","@fellasUI/utils"],
-      "dependencies": ["lucide-react","framer-motion"],
+      "registryDependencies": [
+        "button",
+        "@fellasUI/blur-in",
+        "@fellasUI/utils"
+      ],
+      "dependencies": ["lucide-react", "framer-motion"],
       "files": [
         {
           "path": "registry/@fellas/ui/bento-grid/bento-grid.tsx",
@@ -171,8 +173,15 @@
       "type": "registry:block",
       "title": "Bento Grid",
       "description": "A bento grid block.",
-      "registryDependencies": ["button","@fellasUI/blur-in","@fellasUI/fade-in","@fellasUI/marquee", "@fellasUI/bento-grid","@fellasUI/utils"],
-      "dependencies": ["lucide-react","framer-motion"],
+      "registryDependencies": [
+        "button",
+        "@fellasUI/blur-in",
+        "@fellasUI/fade-in",
+        "@fellasUI/marquee",
+        "@fellasUI/bento-grid",
+        "@fellasUI/utils"
+      ],
+      "dependencies": ["lucide-react", "framer-motion"],
       "files": [
         {
           "path": "registry/@fellas/block/bento/bento.tsx",
@@ -185,16 +194,44 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/lib/utils.ts",
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "all-blocks",
+      "type": "registry:block",
+      "title": "All Blocks",
+      "description": "All Blocks in one",
+      "registryDependencies": [
+        "button",
+        "@fellasUI/blur-in",
+        "@fellasUI/fade-in",
+        "@fellasUI/marquee",
+        "@fellasUI/bento-grid",
+        "@fellasUI/utils",
+        "badge",
+        "card",
+        "@fellasUI/content-grid"
+      ],
+      "dependencies": ["lucide-react", "framer-motion"],
+      "files": [
+        {
+          "path": "registry/@fellas/block/bento/bento.tsx",
+          "type": "registry:block",
+          "target": "components/fellasUI/block/bento/bento.tsx"
+        },
+        {
+          "path": "registry/@fellas/block/content-grid-view/content-grid-view.tsx",
+          "type": "registry:block",
+          "target": "components/fellasUI/block/content-grid-view/content-grid-view.tsx"
+        }
+      ],
+      "author": "codefellas <codefellasdd@gmail.com>"
     }
   ]
 }
