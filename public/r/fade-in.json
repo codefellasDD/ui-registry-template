@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fade-in",
+  "type": "registry:ui",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/@fellas/ui/fade-in/fade-in.tsx",
+      "content": "\"use client\";\n\nimport { motion, Variants } from \"framer-motion\";\nimport { useMemo, ReactNode } from \"react\";\n\ntype FadeTextProps = {\n  className?: string;\n  direction?: \"up\" | \"down\" | \"left\" | \"right\";\n  framerProps?: Variants;\n  children: ReactNode;\n};\n\nexport default function FadeIn({\n  direction = \"up\",\n  className,\n  framerProps = {\n    hidden: { opacity: 0 },\n    show: { opacity: 1, transition: { type: \"spring\" } },\n  },\n  children,\n}: FadeTextProps) {\n  const directionOffset = useMemo(() => {\n    const map = { up: 20, down: -20, left: -20, right: 20 };\n    return map[direction];\n  }, [direction]);\n\n  const axis = direction === \"up\" || direction === \"down\" ? \"y\" : \"x\";\n\n  const FADE_ANIMATION_VARIANTS = useMemo(() => {\n    const { hidden, show, ...rest } = framerProps as {\n      [name: string]: { [name: string]: number; opacity: number };\n    };\n\n    return {\n      ...rest,\n      hidden: {\n        ...(hidden ?? {}),\n        opacity: hidden?.opacity ?? 0,\n        [axis]: hidden?.[axis] ?? directionOffset,\n      },\n      show: {\n        ...(show ?? {}),\n        opacity: show?.opacity ?? 1,\n        [axis]: show?.[axis] ?? 0,\n      },\n    };\n  }, [directionOffset, axis, framerProps]);\n\n  return (\n    <motion.div\n      initial=\"hidden\"\n      animate=\"show\"\n      viewport={{ once: true }}\n      variants={FADE_ANIMATION_VARIANTS}\n    >\n      <motion.span className={className}>{children}</motion.span>\n    </motion.div>\n  );\n}",
+      "type": "registry:ui",
+      "target": "components/fellasUI/ui/fade-in/fade-in.tsx"
+    }
+  ]
+}

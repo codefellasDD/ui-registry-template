@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blur-in",
+  "type": "registry:ui",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/@fellas/ui/blur-in/blur-in.tsx",
+      "content": "\"use client\";\nimport { motion } from \"framer-motion\";\nimport { cn } from \"@/lib/utils\";\nimport { ReactNode } from \"react\";\n\ninterface BlurIntProps {\n  children: ReactNode;\n  className?: string;\n  variant?: {\n    hidden: { filter: string; opacity: number };\n    visible: { filter: string; opacity: number };\n  };\n  duration?: number;\n}\n\nconst BlurIn = ({\n  children,\n  className,\n  variant,\n  duration = 0.33,\n}: BlurIntProps) => {\n  const defaultVariants = {\n    hidden: { filter: \"blur(10px)\", opacity: 0 },\n    visible: { filter: \"blur(0px)\", opacity: 1 },\n  };\n  const combinedVariants = variant || defaultVariants;\n\n  return (\n    <motion.h1\n      initial=\"hidden\"\n      animate=\"visible\"\n      transition={{ duration }}\n      variants={combinedVariants}\n      className={cn(className, \"\")}\n    >\n      {children}\n    </motion.h1>\n  );\n};\n\nexport default BlurIn;",
+      "type": "registry:ui",
+      "target": "components/fellasUI/ui/blur-in/blur-in.tsx"
+    }
+  ]
+}

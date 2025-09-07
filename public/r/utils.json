@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/lib/utils.ts",
+      "content": "import clsx, { ClassValue } from \"clsx\";\nimport { Metadata } from \"next\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function humanize(name: string): string {\n  return name\n    .replace(/-/g, \" \")\n    .replace(/([A-Z])/g, \" $1\")\n    .trim()\n    .split(/\\s+/)\n    .map((word) => word[0].toUpperCase() + word.substring(1).toLowerCase())\n    .join(\" \");\n}\n\nexport const truncate = (str: string | null, length: number) => {\n  if (!str || str.length <= length) return str;\n  return `${str.slice(0, length - 3)}...`;\n};\n\nexport const fetcher = (...args: Parameters<typeof fetch>) =>\n  fetch(...args).then((res) => res.json());\n\n/**\n * Capitalizes first letters of words in string.\n * @param {string} str String to be modified\n * @param {boolean=false} lower Whether all other letters should be lowercased\n * @return {string}\n * @see https://stackoverflow.com/questions/2332811/capitalize-words-in-string/7592235#7592235\n * @usage\n *   capitalize('fix this string');     // -> 'Fix This String'\n *   capitalize('javaSCrIPT');          // -> 'JavaSCrIPT'\n *   capitalize('javaSCrIPT', true);    // -> 'Javascript'\n */\nexport const capitalize = (str: string, lower = false) =>\n  (lower ? str.toLowerCase() : str).replace(/(?:^|\\s|[\"'([{])+\\S/g, (match) =>\n    match.toUpperCase(),\n  );\n\nexport function formatDate(input: string | number): string {\n  const date = new Date(input);\n  return date.toLocaleDateString(\"en-US\", {\n    month: \"long\",\n    day: \"numeric\",\n    year: \"numeric\",\n  });\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}
