@@ -294,6 +294,17 @@
       ]
     },
     {
+      "name": "hooks",
+      "type": "registry:hooks",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/hooks/use-ishydrated.ts",
+          "type": "registry:hooks"
+        }
+      ]
+    },
+    {
       "name": "all-blocks",
       "type": "registry:block",
       "title": "All Blocks",
